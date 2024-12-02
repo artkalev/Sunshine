@@ -13,6 +13,7 @@ install(TARGETS audio-info RUNTIME DESTINATION "tools" COMPONENT audio)
 # Mandatory tools
 install(TARGETS ddprobe RUNTIME DESTINATION "tools" COMPONENT application)
 install(TARGETS sunshinesvc RUNTIME DESTINATION "tools" COMPONENT application)
+install(TARGETS sunshinesvc2 RUNTIME DESTINATION "tools" COMPONENT application)
 
 # Mandatory scripts
 install(DIRECTORY "${SUNSHINE_SOURCE_ASSETS_DIR}/windows/misc/service/"
@@ -69,6 +70,7 @@ SET(CPACK_NSIS_EXTRA_INSTALL_COMMANDS
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\add-firewall-rule.bat\\\"'
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\install-gamepad.bat\\\"'
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\install-service.bat\\\"'
+        nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\install-service2.bat\\\"'
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\autostart-service.bat\\\"'
         NoController:
         ")
@@ -79,6 +81,7 @@ set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS
         "${CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS}
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\delete-firewall-rule.bat\\\"'
         nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\uninstall-service.bat\\\"'
+        nsExec::ExecToLog '\\\"$INSTDIR\\\\scripts\\\\uninstall-service2.bat\\\"'
         nsExec::ExecToLog '\\\"$INSTDIR\\\\sunshine.exe\\\" --restore-nvprefs-undo'
         MessageBox MB_YESNO|MB_ICONQUESTION \
             'Do you want to remove Virtual Gamepad)?' \

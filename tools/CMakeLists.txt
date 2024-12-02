@@ -28,6 +28,17 @@ target_link_libraries(sunshinesvc
         ${PLATFORM_LIBRARIES})
 target_compile_options(sunshinesvc PRIVATE ${SUNSHINE_COMPILE_OPTIONS})
 
+add_executable(sunshinesvc2 sunshinesvc2.cpp)
+set_target_properties(sunshinesvc2 PROPERTIES
+        CXX_STANDARD 20
+)
+target_link_libraries(sunshinesvc2
+        ${CMAKE_THREAD_LIBS_INIT}
+        user32
+        wtsapi32
+        ${PLATFORM_LIBRARIES})
+target_compile_options(sunshinesvc2 PRIVATE ${SUNSHINE_COMPILE_OPTIONS})
+
 add_executable(ddprobe ddprobe.cpp)
 set_target_properties(ddprobe PROPERTIES CXX_STANDARD 20)
 target_link_libraries(ddprobe

@@ -581,6 +581,9 @@ namespace nvhttp {
         auto ptr = map_id_sess.emplace(sess.client.uniqueID, std::move(sess)).first;
 
         ptr->second.async_insert_pin.salt = std::move(get_arg(args, "salt"));
+
+        getservercert(ptr->second, tree, "1234");
+        /*
         if (config::sunshine.flags[config::flag::PIN_STDIN]) {
           std::string pin;
 
@@ -598,6 +601,7 @@ namespace nvhttp {
           fg.disable();
           return;
         }
+        */
       }
       else if (it->second == "pairchallenge"sv) {
         tree.put("root.paired", 1);
